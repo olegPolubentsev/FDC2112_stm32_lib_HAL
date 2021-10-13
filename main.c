@@ -16,7 +16,7 @@ int main(void)
   while (1)
   {
     //в каком либо цикле или по таймеру запрашиваем значения
-	  val = FDC2112_Get_Value_Chanel_A(&FDC2112_A);
+	  val = FDC2112_Get_Value_Chanel_A(&FDC2112);
 	  HAL_Delay(1);
   }
 }
