@@ -60,8 +60,8 @@ uint32_t FDC2112_Get_Value_Chanel_B(defInitConfigStructFDC *init_struct)
 }
 void FDC2112_Set_Configuration(defInitConfigStructFDC *init_struct)
 {
-	FDC2112_Set_Reg(init_struct, FDC2214_DRIVE_CH0, 0b1111100000000000);
-	FDC2112_Set_Reg(init_struct, 0x1C, 				0b0000011000000000);
+	FDC2112_Set_Reg(init_struct, FDC2214_DRIVE_CH0, 0xf800);
+	FDC2112_Set_Reg(init_struct, 0x1C, 0x600);
 	FDC2112_Set_Reg(init_struct, FDC2214_RCOUNT_CH0,0x00FF);
 	HAL_Delay(1);
 }
@@ -76,12 +76,12 @@ void FDC2112_Set_Reg(defInitConfigStructFDC *init_struct, uint8_t read_REG_addr,
 void FDC2112_Eneble_Convertion(defInitConfigStructFDC *init_struct)
 {
 
-	FDC2112_Set_Reg(init_struct, FDC2214_CONFIG,    0b0000000000000001);
+	FDC2112_Set_Reg(init_struct, FDC2214_CONFIG,    0x1);
 }
 void FDC2112_Disable_Convertion(defInitConfigStructFDC *init_struct)
 {
 
-	FDC2112_Set_Reg(init_struct, FDC2214_CONFIG,    0b0010000000000001);
+	FDC2112_Set_Reg(init_struct, FDC2214_CONFIG,    0x2001);
 }
 EnumReadBitLDC FDC2112_Read_Bit(defInitConfigStructFDC *init_struct, uint8_t read_REG_addr, uint8_t bit_num)
 {
